@@ -29,6 +29,14 @@ This is a demo project that showcases:
 
 <br/>
 
+## Usage
+
+1. Run `npm run dev` (or use `./dev.sh` provided script) to start the development server.
+2. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+3. The rich text editor is available at [http://localhost:3000/editor](http://localhost:3000/editor).
+
+<br/>
+
 ## Generated project notes
 
 <details>
