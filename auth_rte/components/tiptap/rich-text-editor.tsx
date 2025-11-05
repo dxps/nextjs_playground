@@ -39,10 +39,10 @@ const extensions = [
 	Placeholder.configure({
 		emptyNodeClass: 'is-editor-empty',
 		placeholder: ({ node }) => {
-			console.log(
-				'>>> [RichTextEditor :: Placeholder] node.type.name:',
-				node.type.name
-			)
+			// console.log(
+			// 	'>>> [RichTextEditor :: Placeholder] node.type.name:',
+			// 	node.type.name
+			// )
 			switch (node.type.name) {
 				case 'heading':
 					return `Heading ${node.attrs.level}`
@@ -88,7 +88,6 @@ export function RichTextEditor({ className }: { className?: string }) {
 		},
 		onUpdate: ({ editor }) => {
 			const text = editor.getHTML()
-			// console.log(editor.getText())
 			console.log('>>> [RichTextEditor :: onUpdate] text:', text)
 		},
 	})

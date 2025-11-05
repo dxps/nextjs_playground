@@ -235,7 +235,7 @@ export function TipTapFloatingMenu({ editor }: { editor: Editor }) {
 
 				commandFn(editor)
 			} catch (error) {
-				console.error('Error executing command:', error)
+				console.error('Error executing command in the editor:', error)
 			} finally {
 				setIsOpen(false)
 				setSearch('')
@@ -335,35 +335,29 @@ export function TipTapFloatingMenu({ editor }: { editor: Editor }) {
 					$from.parent.type.name !== 'codeBlock' &&
 					$from.parentOffset === currentLineText.length
 
-				console.log(
-					'>>> [FloatingMenu :: shouldShow] state.selection:',
-					state.selection,
-					'isSlashCommand:',
-					isSlashCommand,
-					'isOpen',
-					isOpen
-				)
-
 				if (!isSlashCommand) {
 					if (isOpen) setIsOpen(false)
-					return false
+					// return false
 				}
 
 				const query = currentLineText.slice(1).trim()
 				if (query !== search) setSearch(query)
-				if (!isOpen) setIsOpen(true)
-				return true
+				// if (!isOpen) setIsOpen(true)
+				// return true
+
+				return isSlashCommand
 			}}
-			// TODO: tbd
-			// tippyOptions={{
-			// 	placement: 'bottom-start',
-			// 	interactive: true,
-			// 	appendTo: () => document.body,
-			// 	onHide: () => {
-			// 		setIsOpen(false)
-			// 		setSelectedIndex(-1)
-			// 	},
-			// }}
+			// The newer version options, the alternative older version's tippyOptions.
+			options={{
+				placement: 'bottom-start',
+				onShow: () => {
+					// setIsOpen(true)
+				},
+				onHide: () => {
+					setIsOpen(false)
+					setSelectedIndex(-1)
+				},
+			}}
 		>
 			<Command
 				role="listbox"
