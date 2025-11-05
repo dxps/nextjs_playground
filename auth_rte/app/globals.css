@@ -5,7 +5,7 @@ html,
 body,
 :root {
 	height: 100%;
-	line-height: 0.8;
+	line-height: 1;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -126,4 +126,25 @@ body,
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+/* Rich Text Editor */
+.tiptap {
+	line-height: 1.5;
+}
+.tiptap > h1 {
+	font-size: 24;
+	padding: 10 0;
+}
+.tiptap > h2 {
+	font-size: 22;
+	padding: 8 0;
+}
+.tiptap > h3 {
+	font-size: 20;
+	padding: 6 0;
+}
+.tiptap > ul li {
+	list-style-type: disc;
+	margin-left: 14;
 }
